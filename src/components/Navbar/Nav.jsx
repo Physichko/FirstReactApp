@@ -1,9 +1,10 @@
+import cssModule from "./Nav.module.css";
 const Nav = () => {
     return (
-        <nav className={"nav"}>
+        <nav className={`${cssModule.nav} ${cssModule.item}`}>
             <div>
                 <a>Profile</a>
-            </div>
+            </div >
             <div>
                 <a>Messages</a>
             </div>
