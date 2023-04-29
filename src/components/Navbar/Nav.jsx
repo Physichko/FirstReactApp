@@ -1,21 +1,23 @@
 import cssModule from "./Nav.module.css";
+import {NavLink} from "react-router-dom";
 const Nav = () => {
+
     return (
-        <nav className={`${cssModule.nav} ${cssModule.item}`}>
+        <nav className={cssModule.nav}>
             <div>
-                <a>Profile</a>
+                <NavLink to='/profile' className={(navData) => navData.isActive ? cssModule.activeButton : cssModule.button}>Profile</NavLink>
+            </div>
+            <div>
+                <NavLink to='/dialogs' className={(navData) => navData.isActive ? cssModule.activeButton : cssModule.button}>Messages</NavLink>
+            </div>
+            <div>
+                <NavLink to='/news' className={(navData) => navData.isActive ? cssModule.activeButton : cssModule.button}>News</NavLink>
             </div >
             <div>
-                <a>Messages</a>
+                <NavLink to='/music' className={(navData) => navData.isActive ? cssModule.activeButton : cssModule.button}>Music</NavLink>
             </div>
             <div>
-                <a>News</a>
-            </div>
-            <div>
-                <a>Music</a>
-            </div>
-            <div>
-                <a>Settings</a>
+                <NavLink to='/settings' className={(navData) => navData.isActive ? cssModule.activeButton : cssModule.button}>Settings</NavLink>
             </div>
         </nav>
     );

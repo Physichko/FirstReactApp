@@ -1,8 +1,11 @@
 .header{
     grid-area: h;
-    background-color: yellow;
+    background : linear-gradient(to bottom, #848484, #3d3d3d);
+    padding: 20px;
 }
 
-.header img{
-    width: 20px;
+.logo{
+    text-decoration: none;
+    font-family: "Fira Sans";
+    color : lightyellow;
 }

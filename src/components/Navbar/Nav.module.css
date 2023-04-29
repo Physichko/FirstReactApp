@@ -1,8 +1,54 @@
 .nav{
     grid-area: n;
-    background-color: blueviolet;
+    background-color: darkgray;
+    padding: 20px;
 }
 
-.item{
-    color: white;
+.nav .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #848484;
+    background-color: #848484;
+    color: #FFFFFF;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Fira Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    border-radius: 4px;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+.nav .button:hover,
+.nav .button:focus {
+    background-color: #3d3d3d;
+    border-color: #adadad;
+    outline: none;
+}
+
+.nav .activeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #3d3d3d;
+    background-color: #3d3d3d;
+    color: #FFFFFF;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Fira Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    border-radius: 4px;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.nav > *:not(:first-child):not(:last-child) {
+    margin: 10px 0;
+}
+
+
