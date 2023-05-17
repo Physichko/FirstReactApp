@@ -2,16 +2,14 @@ import React from "react";
 import cssModule from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-
 const MyPosts = (props) => {
-
-    let newPostElement = React.createRef();
-    let addPost = () => {
+    let onAddPost = () => {
         props.addPost();
     };
 
-    let newPostTextChanged = () => {
-         props.updateNewPostText(newPostElement.current.value);
+    let onPostChange = (event) => {
+        let text = event.target.value;
+        props.updateNewPostText(text);
     };
 
     return (
@@ -20,10 +18,10 @@ const MyPosts = (props) => {
                     My Posts:
                 </h3>
                 <div>
-                    <textarea ref={newPostElement} value={props.newPostText} onChange={newPostTextChanged}/>
+                    <textarea value={props.newPostText} onChange={onPostChange}/>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add Post</button>
+                    <button onClick={onAddPost}>Add Post</button>
                 </div>
 
                 <div className={cssModule.posts}>
