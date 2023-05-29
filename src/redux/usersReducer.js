@@ -1,41 +1,16 @@
-import {type} from "@testing-library/user-event/dist/type";
-
-const SHOW_MORE = "SHOW_MORE";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
-    users : [
-        {
-            id:1,
-            photoUrl:,
-            fullName : "Dmitry K.",
-            location :{ country: "Belarus", city:"Minsk",},
-            status : "I am looking for a job at the moment",
-            isFollowed : false},
-        {
-            id:2,
-            photoUrl:,
-            fullName : "Lioshka",
-            location :{ country: "Poland", city:"Bialystok",},
-            status : "I am looking for a job at the moment",
-            isFollowed : false},
-        {
-            id:3,
-            photoUrl:,
-            fullName : "Nastyenka",
-            location :{ country: "Belarus", city:"Minsk",},
-            status : "I am looking for a job at the moment",
-            isFollowed: true},
-        {
-            id:4,
-            photoUrl:,
-            fullName : "Pashka",
-            location :{ country: "USA", city:"Miami",},
-            status : "I am looking for a job at the moment",
-            isFollowed: true},
-    ],
+    users : [],
+    pageSize : 5,
+    totalUsersCount : 0,
+    currentPage : 1,
+    isFetching : true,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -71,15 +46,34 @@ const usersReducer = (state = initialState, action) => {
                 })
             };
         }
-        case SHOW_MORE : {
-
-        }
-
         case SET_USERS : {
             return {
                 ...state,
-                users: [...state.users, action.users]};
+                users: [...action.users]
+            };
         }
+
+        case SET_TOTAL_USERS_COUNT: {
+            return {
+                ...state,
+                totalUsersCount: action.count
+            }
+        }
+
+        case SET_CURRENT_PAGE: {
+            return {
+                ...state,
+                currentPage: action.clickedPage
+            }
+        }
+
+        case TOGGLE_IS_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
+
         default :
             return state;
     }
@@ -88,5 +82,10 @@ const usersReducer = (state = initialState, action) => {
 export const followActionCreator = (userId) => ({type : FOLLOW, userId : userId});
 export const unfollowActionCreator = (userId) => ({type : UNFOLLOW, userId : userId});
 export const setUsersActionCreator = (users) => ({type : SET_USERS, users : users});
+export const setTotalUsersCountActionCreator = (count) => ({type : SET_TOTAL_USERS_COUNT, count : count});
+export const setCurrentPageActionCreator = (clickedPage) => ({type : SET_CURRENT_PAGE, clickedPage : clickedPage});
+
+export const setToggleIsFetchingActionCreator = (isFetching) => ({type : TOGGLE_IS_FETCHING, isFetching : isFetching});
+
 
 export default usersReducer;

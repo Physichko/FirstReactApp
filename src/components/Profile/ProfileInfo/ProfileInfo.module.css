@@ -1,3 +1,47 @@
-.descriptionBlock{
-    padding: 10px;
+.container{
+    font-family: "Work Sans";
+    color: white;
+    background-color: black;
+    padding: 20px;
 }
+
+.descriptionBlock{
+    display: inline-flex;
+    align-items: center;
+}
+
+.descriptionBlock .avatar{
+    display: block;
+}
+
+.descriptionBlock .avatar img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.descriptionBlock .nameStatus{
+
+    margin-left: 30px;
+}
+
+.nameStatus .name {
+    font-size: 40px;
+}
+
+.nameStatus .status{
+    font-size: 22px;
+}
+
+.descriptionBlock .contacts{
+
+}
+
+
+
+
+
+
+
+
