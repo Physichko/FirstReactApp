@@ -12,10 +12,10 @@ const ProfileInfo = (props) => {
                 </div>
                 <div className={cssModule.nameStatus}>
                     <div className={cssModule.name}>
-                        <text>{props.profile.fullName}</text>
+                        {props.profile.fullName}
                     </div>
                     <div className={cssModule.status}>
-                        <text>{props.profile.lookingForAJobDescription}</text>
+                        {props.profile.lookingForAJobDescription}
                     </div>
                 </div>
                 <div className={cssModule.contacts}>

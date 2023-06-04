@@ -23,7 +23,7 @@ const usersReducer = (state = initialState, action) => {
                     {
                         return {
                             ...x,
-                            isFollowed: true
+                            followed: true
                         };
                     }
                     return x;
@@ -39,7 +39,7 @@ const usersReducer = (state = initialState, action) => {
                     {
                         return {
                             ...x,
-                            isFollowed: false
+                            followed: false
                         };
                     }
                     return x;
