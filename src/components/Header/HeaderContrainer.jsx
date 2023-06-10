@@ -3,16 +3,16 @@ import Header from "./Header";
 import axios from "axios";
 import {setIsToggleFetchingActionCreator, setUserDataActionCreator} from "../../redux/authReducer";
 import {connect} from "react-redux";
-import Preloader from "../Common/Preloader";
+import {authenticationApi} from "../../api/api";
 
 class HeaderContainer extends React.Component{
     componentDidMount() {
         this.props.setToggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials : true})
-            .then(response => {
-                if(response.data.resultCode === 0)
+        authenticationApi.login()
+            .then(data => {
+                if(data.resultCode === 0)
                 {
-                    this.props.setUsersProfile(response.data.data);
+                    this.props.setUsersProfile(data.data);
                 }
                 this.props.setToggleIsFetching(false);
             });
