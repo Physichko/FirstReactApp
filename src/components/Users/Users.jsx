@@ -1,85 +1,26 @@
-import cssModule from "./Users.module.css";
-import noAvatar from "../../assets/images/images.png";
 import React from "react";
-import {NavLink} from "react-router-dom";
-import {followApi} from "../../api/api";
-
-let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = [];
-    for (let i=1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-    let curP = props.currentPage;
-    let curPF = ((curP - 5) < 0) ?  0  : curP - 5 ;
-    let curPL = curP + 5;
-    let slicedPages = pages.slice( curPF, curPL);
-
-
+import Paginator from "./Paginator";
+import User from "./User";
+// create single user component also
+const Users = ({currentPage, pageChanged, totalUsersCount, pageSize, ...props}) => {
     return (
         <div>
-            <div>
-                {
-                    slicedPages.map(x => {
-                        return <span className={props.currentPage === x && cssModule.selectedPage} onClick={(e) => props.pageChanged(x)}> {x}</span>
-                    })
-                }
-            </div>
+            <Paginator pageChanged={pageChanged} currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize}/>
             {
-                props.users.map(x => (<div key={x.id}>
-                    <span>
-                        <div>
-                            <NavLink to={"/profile/" + x.id}>
-                                <img className={cssModule.userPhoto} src={x.photos.small != null ? x.photos.small : noAvatar}/>
-                            </NavLink>
-                        </div>
-                        <div>
-                            {
-                                x.followed
-                                    ? <button disabled={props.isFollowInProgress.some(id => id === x.id)} onClick={() =>{
-                                        props.setToggleIsInProgress(true,x.id);
-                                        followApi.unfollow(x.id)
-                                            .then(data => {
-                                                if(data.resultCode === 0){
-                                                    props.unfollow(x.id)
-                                                }
-                                                props.setToggleIsInProgress(false,x.id);
-                                            });
-                                    }}>Unfollow</button>
-                                    : <button disabled={props.isFollowInProgress.some(id => id === x.id)} onClick={() => {
-                                        props.setToggleIsInProgress(true,x.id);
-                                        followApi.follow(x.id)
-                                            .then(data => {
-                                                if(data.resultCode === 0){
-                                                    props.follow(x.id)
-                                                }
-                                                props.setToggleIsInProgress(false,x.id);
-                                            });
-                                    }}>Follow</button>
-                            }
-                        </div>
-                    </span>
-                    <span>
-                        <span>
-                            <div>
-                                {x.name}
-                            </div>
-                            <div>
-                                {x.status}
-                            </div>
-                        </span>
-                        <span>
-                            <div>
-                                {"x.location.country"}
-                            </div>
-                            <div>
-                                {"x.location.city"}
-                            </div>
-                        </span>
-                    </span>
-                </div>))
+                props.users.map(x => (
+                    <User id={x.id}
+                          name={x.name}
+                          status={x.status}
+                          photos={x.photos}
+                          followed={x.followed}
+                          isFollowInProgress={props.isFollowInProgress}
+                          follow={props.follow}
+                          unfollow={props.unfollow}
+                    />
+                ))
             }
-        </div>);
+        </div>
+    );
 }
 
 export default Users;

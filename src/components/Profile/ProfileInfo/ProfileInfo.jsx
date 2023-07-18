@@ -1,5 +1,7 @@
 import cssModule from "./ProfileInfo.module.css";
 import Preloader from "../../Common/Preloader";
+import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 const ProfileInfo = (props) => {
     if(!props.profile){
         return <Preloader />
@@ -17,6 +19,7 @@ const ProfileInfo = (props) => {
                     <div className={cssModule.status}>
                         {props.profile.lookingForAJobDescription}
                     </div>
+                    <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
                 </div>
                 <div className={cssModule.contacts}>
                     <ul>

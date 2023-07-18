@@ -18,27 +18,51 @@ export const usersApi = {
 
 export const profileApi = {
     getProfile : (userId) => {
-        return axiosInstance.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+        return axiosInstance.get(`profile/${userId}`)
             .then(response => response.data);
+    },
+    getStatus : (userId) => {
+        return axiosInstance.get(`profile/status/${userId}`)
+            .then(response => response.data);
+    },
+    setStatus : (statusText) => {
+        return axiosInstance.put(`profile/status`, {status : statusText})
+            .then(response =>{
+                return response.data
+            });
     }
 };
 
 export const followApi = {
     follow : (userId) => {
-        return axiosInstance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+        return axiosInstance.post(`follow/${userId}`)
             .then(response => response.data);
     },
 
     unfollow : (userId) => {
-        return  axiosInstance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+        return  axiosInstance.delete(`follow/${userId}`)
             .then(response => response.data);
     },
 };
 
 export const authenticationApi = {
-    login : () => {
-        return  axiosInstance.get(`https://social-network.samuraijs.com/api/1.0/auth/me`)
-            .then(response => response.data);
+    loginByCookie : () => {
+        return  axiosInstance.get(`auth/me`)
+            .then(response => {
+                return response.data
+            });
     },
+    loginByCredentials : (email,password, rememberMe = false) => {
+        return  axiosInstance.post(`auth/login`, {email,password,rememberMe})
+            .then(response => {
+                return response.data
+            });
+    },
+    logout : () => {
+        return  axiosInstance.delete(`auth/login`)
+            .then(response => {
+                return response.data
+            });
+    }
 }
 

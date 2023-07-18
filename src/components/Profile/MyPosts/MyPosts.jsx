@@ -1,15 +1,12 @@
 import React from "react";
 import cssModule from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import NewPostForm from "../NewPostForm";
 
 const MyPosts = (props) => {
-    let onAddPost = () => {
-        props.addPost();
-    };
-
-    let onPostChange = (event) => {
-        let text = event.target.value;
-        props.updateNewPostText(text);
+    console.log("Render")
+    let onAddPost = (formData) => {
+        props.addPost(formData.newPostText);
     };
 
     return (
@@ -17,12 +14,7 @@ const MyPosts = (props) => {
                 <h3>
                     My Posts:
                 </h3>
-                <div>
-                    <textarea value={props.newPostText} onChange={onPostChange}/>
-                </div>
-                <div>
-                    <button onClick={onAddPost}>Add Post</button>
-                </div>
+               <NewPostForm onSubmit={onAddPost} />
 
                 <div className={cssModule.posts}>
                     {props.posts.map(x => <Post id={x.id} likes={x.likes} text={x.text} />) }

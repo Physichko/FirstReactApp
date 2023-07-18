@@ -5,22 +5,40 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContrainer from "./components/Header/HeaderContrainer";
+import Login from "./components/Login/Login";
+import {Component} from "react";
+import {connect} from "react-redux";
+import Preloader from "./components/Common/Preloader";
+import {appInitializedThunkCreator} from "./redux/appReducer";
 
-const App = (props) => {
-    return (
+class App extends Component {
+    componentDidMount() {
+        this.props.appInitialized();
+    }
+
+    render() {
+
+        if(!this.props.isInitialized)
+            return <Preloader />
+        return (
             <div className="app-wrapper">
-                <HeaderContrainer />
-                <Nav />
+                <HeaderContrainer/>
+                <Nav/>
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/profile/:userId?" element={<ProfileContainer/>}/>
-{/*                        <Route path="/profile/*" element={} />*/}
+                        <Route path="/login/" element={<Login/>}/>
                         <Route path="/dialogs/*" element={<DialogsContainer/>}/>
                         <Route path="/users/" element={<UsersContainer/>}/>
                     </Routes>
                 </div>
             </div>
-    );
+        );
+    }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        isInitialized : state.app.isInitialized,
+    }
+}
+export default connect(mapStateToProps, {appInitialized:appInitializedThunkCreator})(App);

@@ -1,44 +1,59 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {setUserProfileActionCreator} from "../../redux/profileReducer";
-import {useParams } from 'react-router-dom';
-import {profileApi} from "../../api/api";
+import {
+    getUserStatusThunkCreator,
+    setProfileThunkCreator,
+    updateUserStatusThunkCreator
+} from "../../redux/profileReducer";
+import {useParams} from 'react-router-dom';
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class ProfileContainer extends React.Component{
     componentDidMount() {
         let userId = this.props.router.userId;
-        if (!userId) userId = 2;
-        profileApi.getProfile(userId).then(data => {
-            this.props.setUsersProfile(data)
-        });
+        if (!userId) userId = this.props.userId;
+        this.props.setProfile(userId);
+        this.props.getUserStatus(userId);
     }
 
     render() {
-        return <Profile {...this.props} profile={this.props.profile}/>
+        return <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateUserStatus={this.props.updateUserStatus}/>
     }
 }
 let mapStateToProps = (state) => ({
-    profile : state.profilePage.profile
+    profile : state.profilePage.profile,
+    status : state.profilePage.status,
+    userId : state.auth.id,
 });
 
 let mapDispatchToProps = (dispatch) => ({
-    setUsersProfile : (profile) => {
-        let action = setUserProfileActionCreator(profile);
-        dispatch(action);
+    setProfile: (userId) => {
+        let thunk = setProfileThunkCreator(userId);
+        dispatch(thunk);
+    },
+    getUserStatus : (userId) => {
+        let thunk = getUserStatusThunkCreator(userId);
+        dispatch(thunk);
+    },
+    updateUserStatus : (status) => {
+        let thunk = updateUserStatusThunkCreator(status);
+        dispatch(thunk);
     }
 });
 
 export function withRouter(ComponentToAddRouter) {
     function ComponentWithRouterProp(props) {
         const params = useParams();
-
         return <ComponentToAddRouter {...props} router={params} />;
     }
 
     return ComponentWithRouterProp;
 }
 
-let profileContainerWithRouter = withRouter(ProfileContainer);
-
-export default connect(mapStateToProps, mapDispatchToProps)(profileContainerWithRouter);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter,
+    withAuthRedirect,
+)(ProfileContainer);
