@@ -1,7 +1,7 @@
 import React, {Component, Suspense} from "react";
 import './App.css';
 import Nav from "./components/Navbar/Nav";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 /*import UsersContainer from "./components/Users/UsersContainer";
 import Login from "./components/Login/Login";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -44,6 +44,7 @@ class App extends Component {
                 <div className="app-wrapper-content">
                     <Suspense fallback={<Preloader/>}>
                         <Routes>
+                            <Route exact path='/' element={<ProfileContainer/>} />
                             <Route path="/profile/:userId?" element={<ProfileContainer/>}/>
                             <Route path="/login/" element={<Login/>}/>
                             <Route path="/dialogs/*" element={<DialogsContainer/>}/>
@@ -62,12 +63,12 @@ const mapStateToProps = (state) => {
 }
 let AppWithConnect = connect(mapStateToProps, {appInitialized:appInitializedThunkCreator})(App);
 let SocialNetworkApp = (props) => {
-    return  (<React.StrictMode>
-        <BrowserRouter>
+    return (<React.StrictMode>
+        <HashRouter>
             <Provider store={store}>
                 <AppWithConnect />
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
         </React.StrictMode>
     );
 }

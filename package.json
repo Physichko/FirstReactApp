@@ -2,7 +2,7 @@
   "name": "itkamasutra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "Physichko.github.io/FirstReactApp",
+  "homepage": "https://physichko.github.io/firstreactapp",
   "dependencies": {
     "@redux-devtools/extension": "^3.2.5",
     "@testing-library/jest-dom": "^5.16.5",
