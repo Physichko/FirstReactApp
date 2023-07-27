@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/firstreactapp/static/css/main.a7fa923c.css",
-    "main.js": "/firstreactapp/static/js/main.1ef6bd9e.js",
+    "main.js": "/firstreactapp/static/js/main.e3cf47e6.js",
     "static/css/156.1bf51a37.chunk.css": "/firstreactapp/static/css/156.1bf51a37.chunk.css",
     "static/js/156.943498d1.chunk.js": "/firstreactapp/static/js/156.943498d1.chunk.js",
     "static/css/972.c98fc0ee.chunk.css": "/firstreactapp/static/css/972.c98fc0ee.chunk.css",
@@ -14,7 +14,7 @@
     "static/js/881.39b45e29.chunk.js": "/firstreactapp/static/js/881.39b45e29.chunk.js",
     "index.html": "/firstreactapp/index.html",
     "main.a7fa923c.css.map": "/firstreactapp/static/css/main.a7fa923c.css.map",
-    "main.1ef6bd9e.js.map": "/firstreactapp/static/js/main.1ef6bd9e.js.map",
+    "main.e3cf47e6.js.map": "/firstreactapp/static/js/main.e3cf47e6.js.map",
     "156.1bf51a37.chunk.css.map": "/firstreactapp/static/css/156.1bf51a37.chunk.css.map",
     "156.943498d1.chunk.js.map": "/firstreactapp/static/js/156.943498d1.chunk.js.map",
     "972.c98fc0ee.chunk.css.map": "/firstreactapp/static/css/972.c98fc0ee.chunk.css.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.a7fa923c.css",
-    "static/js/main.1ef6bd9e.js"
+    "static/js/main.e3cf47e6.js"
   ]
 }
