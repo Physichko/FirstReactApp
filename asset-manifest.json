@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Physichko.github.io/FirstReactApp/static/css/main.a7fa923c.css",
+    "main.js": "/Physichko.github.io/FirstReactApp/static/js/main.58f3c508.js",
+    "static/css/156.1bf51a37.chunk.css": "/Physichko.github.io/FirstReactApp/static/css/156.1bf51a37.chunk.css",
+    "static/js/156.943498d1.chunk.js": "/Physichko.github.io/FirstReactApp/static/js/156.943498d1.chunk.js",
+    "static/css/972.c98fc0ee.chunk.css": "/Physichko.github.io/FirstReactApp/static/css/972.c98fc0ee.chunk.css",
+    "static/js/972.e9eb2071.chunk.js": "/Physichko.github.io/FirstReactApp/static/js/972.e9eb2071.chunk.js",
+    "static/css/579.4b91662f.chunk.css": "/Physichko.github.io/FirstReactApp/static/css/579.4b91662f.chunk.css",
+    "static/js/579.fe21db02.chunk.js": "/Physichko.github.io/FirstReactApp/static/js/579.fe21db02.chunk.js",
+    "static/css/797.af1fb93c.chunk.css": "/Physichko.github.io/FirstReactApp/static/css/797.af1fb93c.chunk.css",
+    "static/js/797.10c09822.chunk.js": "/Physichko.github.io/FirstReactApp/static/js/797.10c09822.chunk.js",
+    "static/js/787.714144bf.chunk.js": "/Physichko.github.io/FirstReactApp/static/js/787.714144bf.chunk.js",
+    "static/js/881.39b45e29.chunk.js": "/Physichko.github.io/FirstReactApp/static/js/881.39b45e29.chunk.js",
+    "index.html": "/Physichko.github.io/FirstReactApp/index.html",
+    "main.a7fa923c.css.map": "/Physichko.github.io/FirstReactApp/static/css/main.a7fa923c.css.map",
+    "main.58f3c508.js.map": "/Physichko.github.io/FirstReactApp/static/js/main.58f3c508.js.map",
+    "156.1bf51a37.chunk.css.map": "/Physichko.github.io/FirstReactApp/static/css/156.1bf51a37.chunk.css.map",
+    "156.943498d1.chunk.js.map": "/Physichko.github.io/FirstReactApp/static/js/156.943498d1.chunk.js.map",
+    "972.c98fc0ee.chunk.css.map": "/Physichko.github.io/FirstReactApp/static/css/972.c98fc0ee.chunk.css.map",
+    "972.e9eb2071.chunk.js.map": "/Physichko.github.io/FirstReactApp/static/js/972.e9eb2071.chunk.js.map",
+    "579.4b91662f.chunk.css.map": "/Physichko.github.io/FirstReactApp/static/css/579.4b91662f.chunk.css.map",
+    "579.fe21db02.chunk.js.map": "/Physichko.github.io/FirstReactApp/static/js/579.fe21db02.chunk.js.map",
+    "797.af1fb93c.chunk.css.map": "/Physichko.github.io/FirstReactApp/static/css/797.af1fb93c.chunk.css.map",
+    "797.10c09822.chunk.js.map": "/Physichko.github.io/FirstReactApp/static/js/797.10c09822.chunk.js.map",
+    "787.714144bf.chunk.js.map": "/Physichko.github.io/FirstReactApp/static/js/787.714144bf.chunk.js.map",
+    "881.39b45e29.chunk.js.map": "/Physichko.github.io/FirstReactApp/static/js/881.39b45e29.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7fa923c.css",
+    "static/js/main.58f3c508.js"
+  ]
+}
