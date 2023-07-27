@@ -4,53 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="212fa7b0-fda2-4ed1-b16c-3601906880e4" name="Changes" comment="Api.js. locking button in users.">
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Inputs/FormControl.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Inputs/FormControl.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Inputs/Input.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Inputs/Input.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Inputs/TextArea.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Inputs/TextArea.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/ValidationErrors.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/ValidationErrors.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/NewMessageForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/NewPostForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatusWithHooks.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Users/Paginator.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Users/User.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/appReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/profileReducer.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/usersSelectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/helpers/objectMappingHelper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/helpers/validatorMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/validators/requiredValidation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/validators/textLengthValidation.js" afterDir="false" />
+    <list default="true" id="212fa7b0-fda2-4ed1-b16c-3601906880e4" name="Changes" comment="Just great amount of changes. I just need access to the data of the repository. And no right git flow. Finally, it is just a pet first non-commercial project with react.">
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContrainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContrainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Paginator.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,40 +68,59 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="New posts length after removing should be decremented" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileStatus component.After click input should be instead of span" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/profileReducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.test.js" />
       <test-names>
-        <test-name value="New posts length after removing should be decremented" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="After click input should be instead of span" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="New posts length should be incremented" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileStatus component.After render input should be displayed with correct status" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/profileReducer.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.test.js" />
       <test-names>
-        <test-name value="New posts length should be incremented" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="After render input should be displayed with correct status" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="renders learn react link" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileStatus component.After render span should be displayed with correct status" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/App.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.test.js" />
       <test-names>
-        <test-name value="renders learn react link" />
+        <test-name value="ProfileStatus component" />
+        <test-name value="After render span should be displayed with correct status" />
       </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfileStatus component.Callback is working" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.test.js" />
+      <test-names>
+        <test-name value="ProfileStatus component" />
+        <test-name value="Callback is working" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Paginator.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/components/Users/Paginator.jsx" working-dir="$PROJECT_DIR$/src/components/Users">
       <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -156,17 +138,21 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Jest.New posts length after removing should be decremented" />
-      <item itemvalue="Jest.New posts length should be incremented" />
-      <item itemvalue="Jest.renders learn react link" />
+      <item itemvalue="Jest.ProfileStatus component.After click input should be instead of span" />
+      <item itemvalue="Jest.ProfileStatus component.After render input should be displayed with correct status" />
+      <item itemvalue="Jest.ProfileStatus component.Callback is working" />
+      <item itemvalue="Jest.ProfileStatus component.After render span should be displayed with correct status" />
+      <item itemvalue="Node.js.Paginator.jsx" />
       <item itemvalue="npm.test" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.New posts length after removing should be decremented" />
-        <item itemvalue="Jest.New posts length should be incremented" />
-        <item itemvalue="Jest.renders learn react link" />
+        <item itemvalue="Node.js.Paginator.jsx" />
+        <item itemvalue="Jest.ProfileStatus component.Callback is working" />
+        <item itemvalue="Jest.ProfileStatus component.After render input should be displayed with correct status" />
+        <item itemvalue="Jest.ProfileStatus component.After render span should be displayed with correct status" />
+        <item itemvalue="Jest.ProfileStatus component.After click input should be instead of span" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +198,10 @@
       <workItem from="1689168632507" duration="2115000" />
       <workItem from="1689342347884" duration="2389000" />
       <workItem from="1689594993321" duration="1653000" />
-      <workItem from="1689685602358" duration="1944000" />
+      <workItem from="1689685602358" duration="2878000" />
+      <workItem from="1689765708956" duration="3284000" />
+      <workItem from="1689858616356" duration="6538000" />
+      <workItem from="1690289883970" duration="3180000" />
     </task>
     <task id="LOCAL-00001" summary="Api.js. locking button in users.">
       <created>1686414141910</created>
@@ -221,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686414141910</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Just great amount of changes. I just need access to the data of the repository. And no right git flow. Finally, it is just a pet first non-commercial project with react.">
+      <created>1689688249841</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689688249841</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,20 +236,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Api.js. locking button in users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Api.js. locking button in users." />
+    <MESSAGE value="Just great amount of changes. I just need access to the data of the repository. And no right git flow. Finally, it is just a pet first non-commercial project with react." />
+    <option name="LAST_COMMIT_MESSAGE" value="Just great amount of changes. I just need access to the data of the repository. And no right git flow. Finally, it is just a pet first non-commercial project with react." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>4</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/redux/profileReducer.test.js</url>
           <line>33</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.test.js</url>
+          <line>17</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Users/Paginator.jsx</url>
+          <line>10</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

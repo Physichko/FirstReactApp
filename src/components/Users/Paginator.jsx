@@ -1,24 +1,39 @@
 import cssModule from "./Users.module.css";
-import React from "react";
+import React, {useState} from "react";
 
-const Paginator = ({totalUsersCount,pageSize,currentPage, pageChanged}) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageSize);
+const Paginator = ({totalItemsCount,pageSize,currentPage, pageChanged, countOfDisplayedPages = 10}) => {
+    let pagesCount = Math.ceil(totalItemsCount / pageSize);
     let pages = [];
     for (let i=1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    let curP = currentPage;
-    let curPF = ((curP - 6) <= 0) ?  0  : curP - 6;
-    let curPL = curP + 5;
-    let slicedPages = pages.slice( curPF, curPL);
+    debugger;
+    let portionCount =  Math.ceil(pagesCount / countOfDisplayedPages);
+    let [currentPortionNumber, setCurrentPortionNumber] = useState(1);
+    let leftPortionPageNumber = (currentPortionNumber -1 )* countOfDisplayedPages  + 1;
+    let rightPortionPageNumber = currentPortionNumber * countOfDisplayedPages;
 
 
     return(
         <div>
             {
-                slicedPages.map(x => {
+                currentPortionNumber > 1
+                    ? <button onClick={() => setCurrentPortionNumber(currentPortionNumber - 1)}>
+                        Prev
+                      </button>
+                    : <></>
+            }
+            {
+                pages.filter(x => x >= leftPortionPageNumber && x <= rightPortionPageNumber).map(x => {
                     return <span className={currentPage === x && cssModule.selectedPage} onClick={(e) => pageChanged(x)}> {x}</span>
                 })
+            }
+            {
+                portionCount > currentPortionNumber
+                    ? <button onClick={() => setCurrentPortionNumber(currentPortionNumber + 1)}>
+                        Next
+                    </button>
+                    : <></>
             }
         </div>
     );

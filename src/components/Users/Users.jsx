@@ -5,7 +5,7 @@ import User from "./User";
 const Users = ({currentPage, pageChanged, totalUsersCount, pageSize, ...props}) => {
     return (
         <div>
-            <Paginator pageChanged={pageChanged} currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize}/>
+            <Paginator pageChanged={pageChanged} currentPage={currentPage} totalItemsCount={totalUsersCount} pageSize={pageSize}/>
             {
                 props.users.map(x => (
                     <User id={x.id}
