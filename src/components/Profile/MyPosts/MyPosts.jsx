@@ -17,7 +17,7 @@ const MyPosts = (props) => {
                <NewPostForm onSubmit={onAddPost} />
 
                 <div className={cssModule.posts}>
-                    {props.posts.map(x => <Post id={x.id} likes={x.likes} text={x.text} />) }
+                    {props.posts.map(x => <Post key={x.id} id={x.id} likes={x.likes} text={x.text} />) }
                 </div>
             </div>
     );

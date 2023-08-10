@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="212fa7b0-fda2-4ed1-b16c-3601906880e4" name="Changes" comment="Gh-Pages fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Common/Inputs/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common/Inputs/Input.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Common/ValidationErrors.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common/ValidationErrors.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Paginator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +198,7 @@
       <workItem from="1691396817591" duration="1261000" />
       <workItem from="1691431512826" duration="7068000" />
       <workItem from="1691513623338" duration="4392000" />
-      <workItem from="1691650729837" duration="4509000" />
+      <workItem from="1691650729837" duration="13632000" />
     </task>
     <task id="LOCAL-00001" summary="Api.js. locking button in users.">
       <created>1686414141910</created>
@@ -230,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690476297817</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Gh-Pages fixes">
+      <created>1691669937053</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691669937053</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -12,7 +12,7 @@ export const ValidationErrors = ({errors}) => {
           {
               arrayOfErrorsText.map(x => {
                   return (
-                      <div className={cssModule.errorMessage}>
+                      <div key={x} className={cssModule.errorMessage}>
                         {x}
                       </div>
                   );
