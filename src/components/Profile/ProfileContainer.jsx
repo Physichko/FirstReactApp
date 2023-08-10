@@ -2,7 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {
-    getUserStatusThunkCreator,
+    getUserStatusThunkCreator, savePhotoThunkCreator,
     setProfileThunkCreator,
     updateUserStatusThunkCreator
 } from "../../redux/profileReducer";
@@ -11,15 +11,31 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 class ProfileContainer extends React.Component{
-    componentDidMount() {
+
+    refreshProfile()
+    {
         let userId = this.props.router.userId;
         if (!userId) userId = this.props.userId;
         this.props.setProfile(userId);
         this.props.getUserStatus(userId);
     }
+    componentDidMount() {
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.router.userId !== this.props.router.userId)
+            this.refreshProfile();
+    }
 
     render() {
-        return <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateUserStatus={this.props.updateUserStatus}/>
+        return <Profile {...this.props}
+                        profile={this.props.profile}
+                        status={this.props.status}
+                        updateUserStatus={this.props.updateUserStatus}
+                        isProfileOwner={this.props.userId && (this.props.router.userId === this.props.userId || this.props.router.userId === undefined)}
+                        savePhoto={this.props.savePhoto}
+        />
     }
 }
 let mapStateToProps = (state) => ({
@@ -39,6 +55,10 @@ let mapDispatchToProps = (dispatch) => ({
     },
     updateUserStatus : (status) => {
         let thunk = updateUserStatusThunkCreator(status);
+        dispatch(thunk);
+    },
+    savePhoto : (file) => {
+        let thunk = savePhotoThunkCreator(file);
         dispatch(thunk);
     }
 });

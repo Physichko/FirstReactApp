@@ -7,7 +7,6 @@ const Paginator = ({totalItemsCount,pageSize,currentPage, pageChanged, countOfDi
     for (let i=1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    debugger;
     let portionCount =  Math.ceil(pagesCount / countOfDisplayedPages);
     let [currentPortionNumber, setCurrentPortionNumber] = useState(1);
     let leftPortionPageNumber = (currentPortionNumber -1 )* countOfDisplayedPages  + 1;

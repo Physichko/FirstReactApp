@@ -30,6 +30,14 @@ export const profileApi = {
             .then(response =>{
                 return response.data
             });
+    },
+    uploadPhoto : (file) => {
+        let formData = new FormData();
+        formData.append("image", file);
+        return axiosInstance.put(`profile/photo`, formData, {headers:{"Content-Type" : "multipart/form-data"}})
+            .then(response =>{
+                return response.data
+            });
     }
 };
 
