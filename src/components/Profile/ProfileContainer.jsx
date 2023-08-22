@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {
-    getUserStatusThunkCreator, savePhotoThunkCreator,
+    getUserStatusThunkCreator, savePhotoThunkCreator, saveProfileDataThunkCreator,
     setProfileThunkCreator,
     updateUserStatusThunkCreator
 } from "../../redux/profileReducer";
@@ -10,33 +10,28 @@ import {useParams} from 'react-router-dom';
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
-class ProfileContainer extends React.Component{
+const ProfileContainer = (props) => {
+    const refreshProfile = () => {
+        let userId = props.router.userId;
+        if (!userId) userId = props.userId;
+        props.setProfile(userId);
+        props.getUserStatus(userId);
+    };
 
-    refreshProfile()
-    {
-        let userId = this.props.router.userId;
-        if (!userId) userId = this.props.userId;
-        this.props.setProfile(userId);
-        this.props.getUserStatus(userId);
-    }
-    componentDidMount() {
-        this.refreshProfile()
-    }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevProps.router.userId !== this.props.router.userId)
-            this.refreshProfile();
-    }
+    useEffect( () => {
+        refreshProfile();
+    },[props.router.userId]);
 
-    render() {
-        return <Profile {...this.props}
-                        profile={this.props.profile}
-                        status={this.props.status}
-                        updateUserStatus={this.props.updateUserStatus}
-                        isProfileOwner={this.props.userId && (this.props.router.userId === this.props.userId || this.props.router.userId === undefined)}
-                        savePhoto={this.props.savePhoto}
-        />
-    }
+
+    return <Profile {...props}
+                        profile={props.profile}
+                        status={props.status}
+                        updateUserStatus={props.updateUserStatus}
+                        isProfileOwner={props.userId && (props.router.userId === props.userId || props.router.userId === undefined)}
+                        savePhoto={props.savePhoto}
+                        saveProfileData={props.saveProfileData}
+    />
 }
 let mapStateToProps = (state) => ({
     profile : state.profilePage.profile,
@@ -44,7 +39,7 @@ let mapStateToProps = (state) => ({
     userId : state.auth.id,
 });
 
-let mapDispatchToProps = (dispatch) => ({
+/*let mapDispatchToProps = (dispatch) => ({
     setProfile: (userId) => {
         let thunk = setProfileThunkCreator(userId);
         dispatch(thunk);
@@ -60,8 +55,12 @@ let mapDispatchToProps = (dispatch) => ({
     savePhoto : (file) => {
         let thunk = savePhotoThunkCreator(file);
         dispatch(thunk);
-    }
-});
+    },
+    saveProfileData : (data,setErrors) => {
+        let thunk = saveProfileDataThunkCreator(data,setErrors);
+        dispatch(thunk);
+    },
+});*/
 
 export function withRouter(ComponentToAddRouter) {
     function ComponentWithRouterProp(props) {
@@ -73,7 +72,7 @@ export function withRouter(ComponentToAddRouter) {
 }
 
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps,{setProfile:setProfileThunkCreator,getUserStatus:getUserStatusThunkCreator,updateUserStatus:updateUserStatusThunkCreator,savePhoto:savePhotoThunkCreator,saveProfileData:saveProfileDataThunkCreator}),
     withRouter,
     withAuthRedirect,
 )(ProfileContainer);

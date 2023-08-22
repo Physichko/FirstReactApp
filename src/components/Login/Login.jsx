@@ -11,11 +11,11 @@ import {ValidationErrors} from "../Common/ValidationErrors";
 let maxva50 = maxLengthValidator(50);
 let full = [requiredValidator,maxva50];
 
-const LoginForm = (props) => {
+const LoginForm = ({captcha,...props}) => {
     return (
         <Formik initialValues={{email:"", password:"", rememberMe:false}} onSubmit = {(values, submitProps) =>
         {
-            props.loginCredentialsThunkCreator(values.email,values.password,values.rememberMe, submitProps.setErrors);
+            props.loginCredentialsThunkCreator(values.email,values.password,values.rememberMe, values.captcha, submitProps.setErrors);
             submitProps.resetForm();
         }
         }>
@@ -37,6 +37,16 @@ const LoginForm = (props) => {
                         <button type="submit">login</button>
 
                         {
+                            captcha && <img src={captcha}/>
+                        }
+                        {
+                            captcha &&  <Field placeholder="captcha"
+                                               type="captcha"
+                                               name="captcha"
+                                               component={Input}
+                                               validate={validatorMiddleware(full)}/>
+                        }
+                        {
                             !props.errors.apiErrors ? <></> : <ValidationErrors errors={props.errors}/>
                         }
                     </Form>
@@ -54,14 +64,15 @@ const Login = (props) => {
     return(
         <div>
             <h1>LOGIN</h1>
-            <LoginForm loginCredentialsThunkCreator={props.loginCredentialsThunkCreator}/>
+            <LoginForm loginCredentialsThunkCreator={props.loginCredentialsThunkCreator} captcha={props.captchaUrl}/>
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        isAuth : state.auth.isAuthorized
+        isAuth : state.auth.isAuthorized,
+        captchaUrl: state.auth.captchaUrl,
     };
 };
 

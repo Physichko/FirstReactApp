@@ -69,6 +69,16 @@ export const savePhotoSuccessActionCreator = (photos) => ({type : SAVE_PHOTO_SUC
 export const setProfileThunkCreator = (userId) => {
     return async (dispatch) => {
         let response = await profileApi.getProfile(userId);
+        for(let key in response) {
+            if(response[key] === null)
+                response[key] = "";
+            else if (Object.keys(response[key]).length > 1){
+                for (let internalKey in response[key]){
+                    if(response[key][internalKey] === null)
+                        response[key][internalKey] = "";
+                }
+            }
+        }
         dispatch(setUserProfileActionCreator(response));
     }
 };
@@ -95,6 +105,18 @@ export const savePhotoThunkCreator = (file) => {
         if(response.resultCode === 0) {
             dispatch(savePhotoSuccessActionCreator(response.data.photos))
         }
+    }
+}
+
+export const saveProfileDataThunkCreator = (data,setErrors) => {
+    return async (dispatch) => {
+        let response = await profileApi.saveProfileData(data);
+        if(response.resultCode === 0){
+            dispatch(setProfileThunkCreator(data.userId));
+            return true;
+        }
+        setErrors({apiErrors : response.messages});
+        return false;
     }
 }
 

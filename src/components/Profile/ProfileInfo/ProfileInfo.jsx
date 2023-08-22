@@ -1,14 +1,13 @@
 import cssModule from "./ProfileInfo.module.css";
 import Preloader from "../../Common/Preloader";
-import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/images.png"
 import {useState} from "react";
 import {Field, Form, Formik} from "formik";
-import Input from "../../Common/Inputs/Input";
 import {validatorMiddleware} from "../../../utils/helpers/validatorMiddleware";
-import {requiredValidator} from "../../../utils/validators/requiredValidation";
 import {maxLengthValidator} from "../../../utils/validators/textLengthValidation";
+import {ValidationErrors} from "../../Common/ValidationErrors";
+import profile from "../Profile";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false);
@@ -25,9 +24,21 @@ const ProfileInfo = (props) => {
         setEditMode(true);
     }
 
-    const onSubmit = (values) => {
-        debugger;
-        alert(JSON.stringify(values, null, 2));
+    const onSubmit = (values, setErrors) => {
+        let profileData = {}
+        profileData.userId = props.profile.userId;
+        profileData.aboutMe = values.aboutMe;
+        profileData.lookingForAJob = values.lookingForAJob;
+        profileData.lookingForAJobDescription = values.lookingForAJobDescription;
+        profileData.fullName = values.fullName;
+        let contactKeys = Object.keys(props.profile.contacts)
+        let contacts = {};
+        for (let i = 0; i < contactKeys.length; i ++)
+            contacts[contactKeys[i]] = values[contactKeys[i]]
+        profileData.contacts = contacts;
+        props.saveProfileData(profileData,setErrors).then((x) => {
+            setEditMode(!x);
+        });
     }
 
     if(!props.profile){
@@ -55,7 +66,12 @@ const ProfileInfo = (props) => {
                 </div>
                 {
                     editMode
-                        ? <ContactsDataForm contacts={props.profile.contacts} onSubmit={onSubmit}/>
+                        ? <ContactsDataForm contacts={props.profile.contacts}
+                                            onSubmit={onSubmit}
+                                            aboutMe={props.profile.aboutMe}
+                                            lookingForAJobDescription={props.profile.lookingForAJobDescription}
+                                            lookingForAJob={props.profile.lookingForAJob}
+                                            fullName={props.profile.fullName}/>
                         : <ContactsData contacts={props.profile.contacts}
                                         onEditButtonClicked={onEditButtonClicked}
                                         isOwner={props.isProfileOwner}
@@ -66,7 +82,7 @@ const ProfileInfo = (props) => {
     );
 }
 
-const ContactsData = ({contacts, onEditButtonClicked, isOwner}) => {
+const ContactsData = ({contacts, onEditButtonClicked, isOwner, props}) => {
     return (
         <div className={cssModule.contacts}>
             <ul>
@@ -79,34 +95,71 @@ const ContactsData = ({contacts, onEditButtonClicked, isOwner}) => {
             {isOwner && <div>
                 <button onClick={onEditButtonClicked}>Edit</button>
             </div> }
+{/*            {
+                !props.errors.apiErrors ? <></> : <ValidationErrors errors={props.errors.apiErrors}/>
+            }*/}
         </div>
     );
 }
 
-const ContactsDataForm = ({contacts, onSubmit}) =>{
+const ContactsDataForm = ({contacts, onSubmit, aboutMe, lookingForAJobDescription, lookingForAJob, fullName}) =>{
     return (
         <Formik
-            initialValues={{...contacts}}
-            onSubmit={(values) => onSubmit(values)}
-            validate={values => {
-                const errors = {};
-                return errors;
-            }}>
+            initialValues={{...contacts, aboutMe, lookingForAJobDescription, lookingForAJob, fullName}}
+            onSubmit={(values, submitProps) => onSubmit(values, submitProps.setErrors)}>
             {
                 (props) => (
                     <Form>
+                        <div>
+                            Full name :
+                            <Field component="input"
+                                   name="fullName"
+                                   validate={() => validatorMiddleware([maxLengthValidator(20)])(props.values.aboutMe)}
+                                   value={props.values.fullName}
+                            />
+                            {props.errors.fullName && props.touched.fullName && <ValidationErrors errors={props.errors.fullName} />}
+                        </div>
+                        <div>
+                            About me :
+                            <Field component="input"
+                                   name="aboutMe"
+                                   validate={() => validatorMiddleware([maxLengthValidator(20)])(props.values.aboutMe)}
+                                   value={props.values.aboutMe}
+                                    />
+                            {props.errors.aboutMe && props.touched.aboutMe && <ValidationErrors errors={props.errors.aboutMe} />}
+                        </div>
+                        <div>
+                            Are you looking for a job?
+                            <label>
+                                <Field type="checkbox"
+                                       name="lookingForAJob"
+                                />
+                            </label>
+                            {props.errors.lookingForAJob && props.touched.lookingForAJob && <ValidationErrors errors={props.errors.lookingForAJob} />}
+                        </div>
+                        <div>
+                            My professional skills:
+                            <Field component="input"
+                                   name="lookingForAJobDescription"
+                                   validate={() => validatorMiddleware([maxLengthValidator(20)])(props.values.lookingForAJobDescription)}
+                                   value={props.values.lookingForAJobDescription}
+                            />
+                            {props.errors.lookingForAJobDescription && props.touched.lookingForAJobDescription && <ValidationErrors errors={props.errors.lookingForAJobDescription} />}
+                        </div>
                         <div className={cssModule.contacts}>
-                            <ul>
-                                {
+                            <ul>{
                                     Object.keys (contacts).map (x => {
                                         return <li key={x}>
-                                            <ContactInEditMode {...props} contactName={x} contactValue={contacts[x]}/>
+                                            <ContactInEditMode {...props} contactName={x} errors={props.errors[x]} touched={props.touched[x]} value={props.values[x]}/>
                                         </li>
                                     })
                                 }
                             </ul>
                         </div>
                         <button type="submit">Submit</button>
+                        {
+                            !props.errors.apiErrors ? <></> : <ValidationErrors errors={props.errors.apiErrors}/>
+                        }
                     </Form>
                 )
             }
@@ -128,7 +181,7 @@ const Contact = ({contactName,contactValue}) => {
     );
 }
 
-const ContactInEditMode = ({contactName,contactValue}) => {
+const ContactInEditMode = ({contactName,errors, touched,value}) => {
     const firstLetterCapital = (word) => {
         let firstLetter = word.charAt(0);
         let rest = word.slice(1);
@@ -143,7 +196,10 @@ const ContactInEditMode = ({contactName,contactValue}) => {
             <div>
                 <Field type={contactName}
                        name={contactName}
+                       validate={() => validatorMiddleware([maxLengthValidator(20)])(value)}
+                       value={value}
                        component="input"/>
+               {errors && touched && <ValidationErrors errors={errors} />}
             </div>
         </div>
     );

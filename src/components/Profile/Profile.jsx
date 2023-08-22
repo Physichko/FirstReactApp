@@ -11,6 +11,7 @@ const Profile = (props) => {
                          isProfileOwner={props.isProfileOwner}
                          savePhoto={props.savePhoto}
                          photos={props.photos}
+                         saveProfileData={props.saveProfileData}
             />
             <MyPostsContainer/>
         </div>
