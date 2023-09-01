@@ -16,10 +16,10 @@ const Dialogs = (props) => {
     return (
         <div className={cssModule.dialogs}>
             <div>
-                { props.dialogs.map(x => <Dialog id={x.id} name={x.name}/>) }
+                { props.dialogs.map(x => <Dialog key={x.id} id={x.id} name={x.name}/>) }
             </div>
             <div>
-                { props.messages.map(x => <Message id={x.id} text={x.text} />) }
+                { props.messages.map(x => <Message key={x.id} id={x.id} text={x.text} />) }
                 <NewMessageForm />
             </div>
         </div>

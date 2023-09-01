@@ -3,7 +3,7 @@ import cssModule from "./Users.module.css";
 import noAvatar from "../../assets/images/images.png";
 import React from "react";
 
-const User = ({id, followed, photos, name, status, isFollowInProgress, follow, unfollow, ...props}) => {
+const User = ({id, followed, photos, name, status, isFollowInProgress, follow, unfollow}) => {
     return (<div key={id}>
                     <span>
                         <div>

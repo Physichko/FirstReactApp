@@ -1,14 +1,16 @@
+import cssModule from "./Users.module.css";
 import React from "react";
 import Paginator from "./Paginator";
 import User from "./User";
 // create single user component also
 const Users = ({currentPage, pageChanged, totalUsersCount, pageSize, ...props}) => {
     return (
-        <div>
+        <div className={cssModule.container}>
             <Paginator pageChanged={pageChanged} currentPage={currentPage} totalItemsCount={totalUsersCount} pageSize={pageSize}/>
             {
                 props.users.map(x => (
-                    <User id={x.id}
+                    <User key={x.id}
+                          id={x.id}
                           name={x.name}
                           status={x.status}
                           photos={x.photos}

@@ -1,5 +1,6 @@
 import React from "react";
 
+//I will leave it like a class component like an example
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,

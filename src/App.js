@@ -1,4 +1,4 @@
-import React, {Component, Suspense} from "react";
+import React, {Component, Suspense, useEffect} from "react";
 import './App.css';
 import Nav from "./components/Navbar/Nav";
 import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
@@ -28,14 +28,21 @@ const Login = React.lazy(() => {
     return  import("./components/Login/Login");
 }) ;
 
-class App extends Component {
-    componentDidMount() {
-        this.props.appInitialized();
+const App = (props) => {
+    const catchAllRejections = (promiseRejectionEvent) =>{
+        alert("Error occured");
+        console.log("rejections log");
     }
 
-    render() {
+    useEffect(() =>{
+        props.appInitialized();
+        window.addEventListener("unhandledrejection",catchAllRejections)
+        return () => {
+            window.removeEventListener("unhandledrejection",catchAllRejections)
+        }
+    },[]);
 
-        if(!this.props.isInitialized)
+        if(!props.isInitialized)
             return <Preloader />
         return (
             <div className="app-wrapper">
@@ -52,9 +59,7 @@ class App extends Component {
                         </Routes>
                     </Suspense>
                 </div>
-            </div>
-        );
-    }
+            </div>);
 }
 const mapStateToProps = (state) => {
     return {

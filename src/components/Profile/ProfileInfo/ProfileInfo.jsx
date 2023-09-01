@@ -7,7 +7,6 @@ import {Field, Form, Formik} from "formik";
 import {validatorMiddleware} from "../../../utils/helpers/validatorMiddleware";
 import {maxLengthValidator} from "../../../utils/validators/textLengthValidation";
 import {ValidationErrors} from "../../Common/ValidationErrors";
-import profile from "../Profile";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false);
@@ -19,12 +18,12 @@ const ProfileInfo = (props) => {
         }
 
     };
-
     const onEditButtonClicked = () => {
         setEditMode(true);
     }
 
     const onSubmit = (values, setErrors) => {
+        console.log("OnSubmitRendered")
         let profileData = {}
         profileData.userId = props.profile.userId;
         profileData.aboutMe = values.aboutMe;
@@ -62,7 +61,7 @@ const ProfileInfo = (props) => {
                     <div className={cssModule.status}>
                         {props.profile.lookingForAJobDescription}
                     </div>
-                    <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
+                    <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus} isProfileOwner={props.isProfileOwner}/>
                 </div>
                 {
                     editMode

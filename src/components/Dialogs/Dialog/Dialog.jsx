@@ -5,7 +5,7 @@ const Dialog = (props) => {
     let path = `/dialogs/${props.id}`;
     return (
         <div className={cssModule.dialog}>
-            <NavLink to={path} className={(navData) => navData.isActive && cssModule.active }>{props.name}</NavLink>
+            <NavLink to={path} className={(navData) => navData.isActive ? cssModule.active : undefined}>{props.name}</NavLink>
         </div>
     );
 };
