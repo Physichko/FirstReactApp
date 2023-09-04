@@ -1,4 +1,7 @@
-import {loginCookieThunkCreator} from "./authReducer";
+//import {loginCookieThunkCreator} from "./authReducer.js";
+import {Dispatch} from "redux";
+
+const {loginCookieThunkCreator} = require('./authReducer.js');
 
 const SET_INITIALIZED : string = "appReducer/SET_INITIALIZED";
 
@@ -25,7 +28,7 @@ const appReducer : (state : StateType, action : IAction ) => StateType = (state 
 
 export const setIsInitializedActionCreator : (isInitialized : boolean) => ISetInitializeAction = (isInitialized) => ({type : SET_INITIALIZED, isInitialized});
 export const appInitializedThunkCreator = () => {
-    return (dispatch) => {
+    return (dispatch : Dispatch) => {
         let promise = dispatch(loginCookieThunkCreator());
         Promise.all([promise])
             .then(() => {

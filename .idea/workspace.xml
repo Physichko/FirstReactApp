@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="212fa7b0-fda2-4ed1-b16c-3601906880e4" name="Changes" comment="Type script added">
+    <list default="true" id="212fa7b0-fda2-4ed1-b16c-3601906880e4" name="Changes" comment="Issue with first ts reducer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/appReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/appReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/appReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/appReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +210,7 @@
       <workItem from="1693210173413" duration="5846000" />
       <workItem from="1693317488282" duration="1799000" />
       <workItem from="1693550958568" duration="1429000" />
-      <workItem from="1693814170372" duration="2872000" />
+      <workItem from="1693814170372" duration="6560000" />
     </task>
     <task id="LOCAL-00001" summary="Api.js. locking button in users.">
       <created>1686414141910</created>
@@ -274,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693814321857</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Issue with first ts reducer">
+      <created>1693817160378</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693817160378</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +320,8 @@
     <MESSAGE value="profileChanges will learn more about react hooks to replace class components to functional components with hooks" />
     <MESSAGE value="Functional components with hooks" />
     <MESSAGE value="Type script added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Type script added" />
+    <MESSAGE value="Issue with first ts reducer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue with first ts reducer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
