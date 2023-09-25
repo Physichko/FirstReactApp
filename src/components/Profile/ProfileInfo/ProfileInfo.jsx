@@ -5,7 +5,7 @@ import userPhoto from "../../../assets/images/images.png"
 import {useState} from "react";
 import {Field, Form, Formik} from "formik";
 import {validatorMiddleware} from "../../../utils/helpers/validatorMiddleware";
-import {maxLengthValidator} from "../../../utils/validators/textLengthValidation";
+import {maxLengthValidatorCreator} from "../../../utils/validators/textLengthValidation";
 import {ValidationErrors} from "../../Common/ValidationErrors";
 
 const ProfileInfo = (props) => {
@@ -23,7 +23,6 @@ const ProfileInfo = (props) => {
     }
 
     const onSubmit = (values, setErrors) => {
-        console.log("OnSubmitRendered")
         let profileData = {}
         profileData.userId = props.profile.userId;
         profileData.aboutMe = values.aboutMe;
@@ -113,7 +112,7 @@ const ContactsDataForm = ({contacts, onSubmit, aboutMe, lookingForAJobDescriptio
                             Full name :
                             <Field component="input"
                                    name="fullName"
-                                   validate={() => validatorMiddleware([maxLengthValidator(20)])(props.values.aboutMe)}
+                                   validate={() => validatorMiddleware([maxLengthValidatorCreator(20)])(props.values.aboutMe)}
                                    value={props.values.fullName}
                             />
                             {props.errors.fullName && props.touched.fullName && <ValidationErrors errors={props.errors.fullName} />}
@@ -122,7 +121,7 @@ const ContactsDataForm = ({contacts, onSubmit, aboutMe, lookingForAJobDescriptio
                             About me :
                             <Field component="input"
                                    name="aboutMe"
-                                   validate={() => validatorMiddleware([maxLengthValidator(20)])(props.values.aboutMe)}
+                                   validate={() => validatorMiddleware([maxLengthValidatorCreator(20)])(props.values.aboutMe)}
                                    value={props.values.aboutMe}
                                     />
                             {props.errors.aboutMe && props.touched.aboutMe && <ValidationErrors errors={props.errors.aboutMe} />}
@@ -140,7 +139,7 @@ const ContactsDataForm = ({contacts, onSubmit, aboutMe, lookingForAJobDescriptio
                             My professional skills:
                             <Field component="input"
                                    name="lookingForAJobDescription"
-                                   validate={() => validatorMiddleware([maxLengthValidator(20)])(props.values.lookingForAJobDescription)}
+                                   validate={() => validatorMiddleware([maxLengthValidatorCreator(20)])(props.values.lookingForAJobDescription)}
                                    value={props.values.lookingForAJobDescription}
                             />
                             {props.errors.lookingForAJobDescription && props.touched.lookingForAJobDescription && <ValidationErrors errors={props.errors.lookingForAJobDescription} />}
@@ -195,7 +194,7 @@ const ContactInEditMode = ({contactName,errors, touched,value}) => {
             <div>
                 <Field type={contactName}
                        name={contactName}
-                       validate={() => validatorMiddleware([maxLengthValidator(20)])(value)}
+                       validate={() => validatorMiddleware([maxLengthValidatorCreator(20)])(value)}
                        value={value}
                        component="input"/>
                {errors && touched && <ValidationErrors errors={errors} />}

@@ -4,7 +4,6 @@ import Post from "./Post/Post";
 import NewPostForm from "../NewPostForm";
 
 const MyPosts = (props) => {
-    console.log("Render")
     let onAddPost = (formData) => {
         props.addPost(formData.newPostText);
     };

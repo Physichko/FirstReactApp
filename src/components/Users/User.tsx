@@ -1,9 +1,17 @@
 import {NavLink} from "react-router-dom";
 import cssModule from "./Users.module.css";
 import noAvatar from "../../assets/images/images.png";
-import React from "react";
+import React, {FC} from "react";
+import {FrontEndUserType} from "../../types/types";
 
-const User = ({id, followed, photos, name, status, isFollowInProgress, follow, unfollow}) => {
+type UserComponentPropsCallbackType = {
+    isFollowInProgress : Array<number>
+    followCallback : (id : number) => void;
+    unfollowCallback : (id : number) => void;
+};
+
+type UserComponentPropsType = FrontEndUserType & UserComponentPropsCallbackType;
+const User : FC<UserComponentPropsType> = ({id, isFollowed, photos, name, status, isFollowInProgress, followCallback, unfollowCallback}) => {
     return (<div key={id}>
                     <span>
                         <div>
@@ -14,18 +22,18 @@ const User = ({id, followed, photos, name, status, isFollowInProgress, follow, u
                         </div>
                         <div>
                             {
-                                followed
+                                isFollowed
                                     ? <button disabled={isFollowInProgress.some(currentId => currentId === id)}
                                                 onClick={
                                         () => {
-                                                    unfollow(id);
+                                                    unfollowCallback(id);
                                                 }
                                     }>Unfollow</button>
 
                                     : <button disabled={isFollowInProgress.some(currentId => currentId === id)}
                                         onClick={
                                     () => {
-                                            follow(id);
+                                            followCallback(id);
                                     }
                                 }>Follow</button>
                             }

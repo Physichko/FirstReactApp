@@ -1,21 +1,20 @@
-//import {loginCookieThunkCreator} from "./authReducer.js";
-import {Dispatch} from "redux";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType, InferActionsTypes} from "./reduxStore";
 
-const {loginCookieThunkCreator} = require('./authReducer.js');
+const {loginCookieThunkCreator} = require('./authReducer');
 
-const SET_INITIALIZED : string = "appReducer/SET_INITIALIZED";
-
-let initialState : StateType = {
+let initialState = {
     isInitialized : false,
 };
 
-const appReducer : (state : StateType, action : IAction ) => StateType = (state = initialState, action) => {
+type StateType = typeof initialState;
+type ActionsTypes = InferActionsTypes<typeof appReducerActionCreators>;
+const appReducer = (state : StateType = initialState, action : ActionsTypes) :StateType => {
     switch (action.type){
-        case SET_INITIALIZED : {
-            let setInitializeAction = action as ISetInitializeAction;
+        case 'SET_INITIALIZED' : {
             return {
                 ...state,
-                isInitialized: setInitializeAction.isInitialized
+                isInitialized: action.isInitialized,
             };
         }
 
@@ -24,28 +23,18 @@ const appReducer : (state : StateType, action : IAction ) => StateType = (state 
         }
     }
 };
-
-
-export const setIsInitializedActionCreator : (isInitialized : boolean) => ISetInitializeAction = (isInitialized) => ({type : SET_INITIALIZED, isInitialized});
-export const appInitializedThunkCreator = () => {
-    return (dispatch : Dispatch) => {
+export const appReducerActionCreators = {
+    setIsInitializedActionCreator : (isInitialized : boolean)  => ({type : 'SET_INITIALIZED', isInitialized} as const),
+}
+export const appInitializedThunkCreator = () : ThunkAction<void,AppStateType, unknown, ActionsTypes> => {
+    return (dispatch) => {
         let promise = dispatch(loginCookieThunkCreator());
         Promise.all([promise])
             .then(() => {
-            dispatch(setIsInitializedActionCreator(true))
+            dispatch(appReducerActionCreators.setIsInitializedActionCreator(true))
         });
 
     };
 }
 
-type StateType = {
-    isInitialized : boolean
-};
-
-interface IAction  {
-    type : string
-}
-interface ISetInitializeAction extends IAction {
-    isInitialized : boolean
-}
 export default appReducer;

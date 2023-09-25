@@ -9,11 +9,11 @@ const HeaderContainer = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        id : state.auth.id,
-        email : state.auth.email,
-        login : state.auth.login,
+        id : state.auth.userData.id,
+        email : state.auth.userData.email,
+        login : state.auth.userData.login,
         isFetching : state.auth.isFetching,
-        isAuthorized: state.auth.isAuthorized,
+        isAuthorized: state.auth.userData.isAuthorized,
     }
 };
 

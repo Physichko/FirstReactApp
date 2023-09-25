@@ -6,9 +6,9 @@ import {
     setProfileThunkCreator,
     updateUserStatusThunkCreator
 } from "../../redux/profileReducer";
-import {useParams} from 'react-router-dom';
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {withRouter} from "../../hoc/withRouter";
 
 const ProfileContainer = (props) => {
     const refreshProfile = () => {
@@ -36,43 +36,13 @@ const ProfileContainer = (props) => {
 let mapStateToProps = (state) => ({
     profile : state.profilePage.profile,
     status : state.profilePage.status,
-    userId : state.auth.id,
+    userId : state.auth.userData.id,
 });
 
-/*let mapDispatchToProps = (dispatch) => ({
-    setProfile: (userId) => {
-        let thunk = setProfileThunkCreator(userId);
-        dispatch(thunk);
-    },
-    getUserStatus : (userId) => {
-        let thunk = getUserStatusThunkCreator(userId);
-        dispatch(thunk);
-    },
-    updateUserStatus : (status) => {
-        let thunk = updateUserStatusThunkCreator(status);
-        dispatch(thunk);
-    },
-    savePhoto : (file) => {
-        let thunk = savePhotoThunkCreator(file);
-        dispatch(thunk);
-    },
-    saveProfileData : (data,setErrors) => {
-        let thunk = saveProfileDataThunkCreator(data,setErrors);
-        dispatch(thunk);
-    },
-});*/
 
-export function withRouter(ComponentToAddRouter) {
-    function ComponentWithRouterProp(props) {
-        const params = useParams();
-        return <ComponentToAddRouter {...props} router={params} />;
-    }
-
-    return ComponentWithRouterProp;
-}
 
 export default compose(
-    connect(mapStateToProps,{setProfile:setProfileThunkCreator,getUserStatus:getUserStatusThunkCreator,updateUserStatus:updateUserStatusThunkCreator,savePhoto:savePhotoThunkCreator,saveProfileData:saveProfileDataThunkCreator}),
     withRouter,
     withAuthRedirect,
+    connect(mapStateToProps,{setProfile:setProfileThunkCreator,getUserStatus:getUserStatusThunkCreator,updateUserStatus:updateUserStatusThunkCreator,savePhoto:savePhotoThunkCreator,saveProfileData:saveProfileDataThunkCreator}),
 )(ProfileContainer);

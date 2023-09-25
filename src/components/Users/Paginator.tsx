@@ -1,9 +1,17 @@
 import cssModule from "./Users.module.css";
+import cn from "classnames";
 import React, {useState} from "react";
 
-const Paginator = ({totalItemsCount,pageSize,currentPage, pageChanged, countOfDisplayedPages = 10}) => {
-    let pagesCount = Math.ceil(totalItemsCount / pageSize);
-    let pages = [];
+type PaginatorPropsType = {
+    totalItemsCount : number,
+    pageSize : number,
+    currentPage : number,
+    onPageChangedCallback : (x : number) => void,
+    countOfDisplayedPages? : number
+}
+const Paginator : React.FC<PaginatorPropsType> = ({totalItemsCount,pageSize,currentPage, onPageChangedCallback, countOfDisplayedPages = 10}) => {
+    let pagesCount= Math.ceil(totalItemsCount / pageSize);
+    let pages : Array<number> = [];
     for (let i=1; i <= pagesCount; i++) {
         pages.push(i);
     }
@@ -24,8 +32,8 @@ const Paginator = ({totalItemsCount,pageSize,currentPage, pageChanged, countOfDi
             }
             {
                 pages.filter(x => x >= leftPortionPageNumber && x <= rightPortionPageNumber).map(x => {
-                    return(<span key={x} className={currentPage === x ? cssModule.selectedPage : undefined}
-                                 onClick={(e) => pageChanged(x)}>
+                    return(<span key={x} className={cn({[cssModule.selectedPage] : currentPage === x}, "")}
+                                 onClick={(e) => onPageChangedCallback(x)}>
                         {` ${x}`}
                     </span>
                     );

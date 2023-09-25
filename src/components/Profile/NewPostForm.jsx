@@ -1,7 +1,6 @@
 import {Form, Formik,Field} from "formik";
-import {maxLengthValidator} from "../../utils/validators/textLengthValidation";
+import {maxLengthValidatorCreator} from "../../utils/validators/textLengthValidation";
 import {requiredValidator} from "../../utils/validators/requiredValidation";
-import TextArea from "../Common/Inputs/TextArea";
 import {validatorMiddleware} from "../../utils/helpers/validatorMiddleware";
 
 const NewPostForm = () => {
@@ -15,8 +14,7 @@ const NewPostForm = () => {
                         type="newPostText"
                         name="newPostText"
                         placeholder="Write your post here"
-                        component={TextArea}
-                        validate={validatorMiddleware([requiredValidator,maxLengthValidator(5),maxLengthValidator(10)])}/>
+                        validate={validatorMiddleware([requiredValidator,maxLengthValidatorCreator(5),maxLengthValidatorCreator(10)])}/>
                     <button type="submit">Submit</button>
                 </Form>
             )}
